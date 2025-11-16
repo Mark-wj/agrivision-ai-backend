@@ -5,7 +5,7 @@
 [![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.104-009688.svg)](https://fastapi.tiangolo.com/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.16-orange.svg)](https://www.tensorflow.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 
 ## 🎯 Overview
 
@@ -56,7 +56,7 @@ This is the backend API for AgroVision AI, providing real-time plant disease det
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR_USERNAME/agrovision-backend.git
+git clone https://github.com/Mark-wj/agrovision-backend.git
 cd agrovision-backend
 
 # Create virtual environment
@@ -237,8 +237,6 @@ agrovision-backend/
 # Test model loading
 python model_builder.py
 
-# Test API endpoints
-python -m pytest tests/  # (if tests are added)
 ```
 
 ### Adding New Features
@@ -264,89 +262,6 @@ git push origin feature/new-endpoint
 
 ---
 
-## 🚀 Deployment
-
-### Deploy to Render
-
-1. **Push to GitHub** (with Git LFS for model)
-
-2. **Create Web Service** on Render:
-   - Runtime: Python 3
-   - Build Command: `pip install -r requirements.txt`
-   - Start Command: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-
-3. **Access at:** `https://your-service.onrender.com`
-
-### Environment Variables
-
-No environment variables required for basic setup.
-
-For production, consider:
-- `MODEL_PATH` - Custom model file path
-- `MAX_UPLOAD_SIZE` - Maximum image upload size
-- `LOG_LEVEL` - Logging verbosity
-
----
-
-## 🔒 Security
-
-- ✅ Input validation on all endpoints
-- ✅ File type checking (images only)
-- ✅ CORS configured for specific origins
-- ✅ HTTPS enforced in production
-- ⚠️ Consider adding rate limiting for production
-
-### Recommended: Add Rate Limiting
-
-```bash
-pip install slowapi
-```
-
-```python
-from slowapi import Limiter
-limiter = Limiter(key_func=get_remote_address)
-
-@app.post("/predict")
-@limiter.limit("10/minute")
-async def predict_disease(...):
-    ...
-```
-
----
-
-## 🐛 Troubleshooting
-
-### Model Not Loading
-
-**Error:** `Layer "dense" expects 1 input(s)...`
-
-**Solution:** Using `model_builder.py` which rebuilds architecture and loads weights separately.
-
-### Out of Memory
-
-**Error:** `ResourceExhaustedError`
-
-**Solution:** Reduce batch size or upgrade server RAM.
-
-### Slow Predictions
-
-**Issue:** First request takes 30+ seconds
-
-**Cause:** Render free tier spins down after inactivity
-
-**Solution:** Upgrade to paid tier or use UptimeRobot to keep alive
-
----
-
-## 📊 Performance Tips
-
-1. **Image Preprocessing:** Resize images client-side before upload
-2. **Caching:** Cache common predictions with Redis
-3. **Batch Processing:** Process multiple images in one request
-4. **Model Optimization:** Use TensorFlow Lite for faster inference
-
----
-
 ## 🤝 Contributing
 
 Contributions welcome! Please:
@@ -365,11 +280,6 @@ Contributions welcome! Please:
 
 ---
 
-## 📄 License
-
-MIT License - see [LICENSE](LICENSE) file
-
----
 
 ## 🙏 Acknowledgments
 
@@ -382,22 +292,9 @@ MIT License - see [LICENSE](LICENSE) file
 
 ## 📞 Contact & Support
 
-- **Issues:** [GitHub Issues](https://github.com/YOUR_USERNAME/agrovision-backend/issues)
-- **Email:** your.email@agrovision.com
-- **Documentation:** [API Docs](https://your-api.onrender.com/docs)
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Add batch prediction endpoint
-- [ ] Implement caching layer (Redis)
-- [ ] Add rate limiting
-- [ ] Support more crop types
-- [ ] Multi-language recommendations
-- [ ] Model versioning system
-- [ ] A/B testing framework
-- [ ] Prometheus metrics export
+- **Issues:** [GitHub Issues](https://github.com/Mark-wj/agrovision-backend/issues)
+- **Email:** marknjenga25@gmail.com.com
+- **Documentation:** [API Docs](https://agrivision-ai-backend.onrender.com/docs)
 
 ---
 

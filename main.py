@@ -31,10 +31,9 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",  # Local React development
+        "http://localhost:3000", 
         "http://localhost:3001",
-        "https://your-app.vercel.app",  # Production frontend (update this!)
-        "*"  # Allow all origins (remove in production for security)
+        "https://agrivision-ai-frontendd.vercel.app/"
     ],
     allow_credentials=True,
     allow_methods=["*"],
