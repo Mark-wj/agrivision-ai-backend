@@ -31,9 +31,10 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000", 
-        "http://localhost:3001",
-        "https://agrivision-ai-frontendd.vercel.app"
+        "http://localhost:3000",
+        "http://localhost:5173",  
+        "https://agrovision-ai-frontendd.vercel.app",  
+        "https://*.vercel.app",  
     ],
     allow_credentials=True,
     allow_methods=["*"],
